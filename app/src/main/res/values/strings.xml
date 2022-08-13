@@ -1,3 +1,192 @@
 <resources>
-    <string name="app_name">SakeStudent</string>
+    <string name="app_name">Sake Student</string>
+
+    <string name="btnExport">テキスト出力</string>
+    <string name="btnClear">クリア</string>
+
+    <string name="tvSakeName">銘柄</string>
+
+    <!-- ================================================== -->
+    <!-- 外観 -->
+    <!-- ================================================== -->
+    <string name="tvAppearance">外観</string>
+
+    <string name="tvTransparency">清澄感(せいちょうかん)</string>
+    <string name="cbTransparency1">1.透明感がある</string>
+    <string name="cbTransparency2">2.霞んだ</string>
+    <string name="cbTransparency3">3.濁った</string>
+
+    <string name="tvShade">濃淡</string>
+    <string name="cbShade1">1.無色に近い</string>
+    <string name="cbShade2">2.淡い</string>
+    <string name="cbShade3">3.やや淡い</string>
+    <string name="cbShade4">4.やや濃い</string>
+    <string name="cbShade5">5.濃い</string>
+
+    <string name="tvColorTone">色調</string>
+    <string name="cbColorTone1">1.クリスタル</string>
+    <string name="cbColorTone2">2.ゴールド</string>
+    <string name="cbColorTone3">3.シルバー</string>
+    <string name="cbColorTone4">4.グリーン</string>
+    <string name="cbColorTone5">5.イエロー</string>
+    <string name="cbColorTone6">6.トパーズ</string>
+    <string name="cbColorTone7">7.オレンジ</string>
+    <string name="cbColorTone8">8.ブラウン</string>
+
+    <!-- ================================================== -->
+    <!-- 香り -->
+    <!-- ================================================== -->
+    <string name="tvFragrance">香り</string>
+
+    <string name="tvFirstImpressionFragrance">第一印象・主体となる香り</string>
+    <string name="cbFirstImpressionFragrance1">1.若々しい</string>
+    <string name="cbFirstImpressionFragrance2">2.さわやかな</string>
+    <string name="cbFirstImpressionFragrance3">3.華やかな</string>
+    <string name="cbFirstImpressionFragrance4">4.ふくよかな</string>
+    <string name="cbFirstImpressionFragrance5">5.芳醇な</string>
+    <string name="cbFirstImpressionFragrance6">6.おだやかな</string>
+    <string name="cbFirstImpressionFragrance7">7.熟成香を感じる</string>
+
+    <string name="tvFeature">特徴</string>
+    <string name="tvFeatureManual">特徴(手入力)</string>
+    <string name="cbFeature1">1.グレープフルーツ</string>
+    <string name="cbFeature2">2.黄色いリンゴ</string>
+    <string name="cbFeature3">3.洋ナシ</string>
+    <string name="cbFeature4">4.白桃</string>
+    <string name="cbFeature5">5.バナナ</string>
+    <string name="cbFeature6">6.メロン</string>
+    <string name="cbFeature7">7.マスカット</string>
+    <string name="cbFeature8">8.ライチ</string>
+    <string name="cbFeature9">9.スイカズラ</string>
+    <string name="cbFeature10">10.スミレ</string>
+    <string name="cbFeature11">11.アカシア</string>
+    <string name="cbFeature12">12.菩提樹</string>
+    <string name="cbFeature13">13.セルフィーユ</string>
+    <string name="cbFeature14">14.青竹</string>
+    <string name="cbFeature15">15.新緑</string>
+    <string name="cbFeature16">16.紅茶</string>
+    <string name="cbFeature17">17.月桂樹の葉</string>
+    <string name="cbFeature18">18.ヒノキ</string>
+    <string name="cbFeature19">19.香木</string>
+    <string name="cbFeature20">20.ゴボウ</string>
+    <string name="cbFeature21">21.朝鮮人参</string>
+    <string name="cbFeature22">22.マッシュルーム</string>
+    <string name="cbFeature23">23.シイタケ</string>
+    <string name="cbFeature24">24.丁子</string>
+    <string name="cbFeature25">25.シナモン</string>
+    <string name="cbFeature26">26.ビターチョコレート</string>
+    <string name="cbFeature27">27.栗</string>
+    <string name="cbFeature28">28.クルミ</string>
+    <string name="cbFeature29">29.アーモンド</string>
+    <string name="cbFeature30">30.炊いた米</string>
+    <string name="cbFeature31">31.つきたての餅</string>
+    <string name="cbFeature32">32.上新粉</string>
+    <string name="cbFeature33">33.白玉団子</string>
+    <string name="cbFeature34">34.杏仁豆腐</string>
+    <string name="cbFeature35">35.生クリーム</string>
+    <string name="cbFeature36">36.サワークリーム</string>
+    <string name="cbFeature37">37.ヨーグルト</string>
+    <string name="cbFeature38">38.発酵バター</string>
+    <string name="cbFeature39">39.クリームチーズ</string>
+    <string name="cbFeature40">40.粘土</string>
+    <string name="cbFeature41">41.腐葉土</string>
+    <string name="cbFeature42">42.石灰</string>
+    <string name="cbFeature43">43.鉄</string>
+    <string name="cbFeature44">44.カラメル</string>
+    <string name="cbFeature45">45.コーヒー</string>
+    <string name="cbFeature46">46.醤油</string>
+    <string name="cbFeature47">47.ヨード香</string>
+    <string name="cbFeature48">48.蜂蜜</string>
+    <string name="cbFeature49">49.スモーク香</string>
+    <string name="cbFeature50">50.カビ</string>
+    <string name="cbFeature51">51.タマネギ</string>
+    <string name="cbFeature52">52.熟成チーズ</string>
+
+    <!-- ================================================== -->
+    <!-- 味わい -->
+    <!-- ================================================== -->
+    <string name="tvFlavor">味わい</string>
+
+    <string name="tvFirstImpressionFlavor">第一印象・アタック</string>
+    <string name="cbFirstImpressionFlavor1">1.軽い</string>
+    <string name="cbFirstImpressionFlavor2">2.やや軽い</string>
+    <string name="cbFirstImpressionFlavor3">3.やや強い</string>
+    <string name="cbFirstImpressionFlavor4">4.強い</string>
+
+    <string name="tvBubbleSize">気泡(粒度)</string>
+    <string name="cbBubbleSize1">1.なし</string>
+    <string name="cbBubbleSize2">2.きめ細やか</string>
+    <string name="cbBubbleSize3">3.細やか</string>
+    <string name="cbBubbleSize4">4.小さめ</string>
+    <string name="cbBubbleSize5">5.大きめ</string>
+
+    <string name="tvBubbleVolume">気泡(量、持続性)</string>
+    <string name="cbBubbleVolume1">1.なし</string>
+    <string name="cbBubbleVolume2">2.微発泡</string>
+    <string name="cbBubbleVolume3">3.イキイキとした</string>
+    <string name="cbBubbleVolume4">4.弱発泡</string>
+    <string name="cbBubbleVolume5">5.豊かな</string>
+    <string name="cbBubbleVolume6">6.ほのかに、微かに</string>
+    <string name="cbBubbleVolume7">7.持続性のある</string>
+
+    <string name="tvTaste">口当たり</string>
+    <string name="tvExpanse">広がり</string>
+    <string name="tvLingeringTaste">余韻</string>
+
+    <string name="cbTaste1">甘み1.弱い</string>
+    <string name="cbTaste2">甘み2.上品な甘味</string>
+    <string name="cbTaste3">甘み3.まろやかな甘味</string>
+    <string name="cbTaste4">甘み4.ふくよかな甘味</string>
+    <string name="cbTaste5">甘み5.強い甘み</string>
+    <string name="cbTaste6">酸味1.爽やかな</string>
+    <string name="cbTaste7">酸味2.優しい</string>
+    <string name="cbTaste8">酸味3.丸みがある</string>
+    <string name="cbTaste9">酸味4.なめらかな</string>
+    <string name="cbTaste10">酸味5.きめ細かい</string>
+    <string name="cbTaste11">酸味6.シャープな</string>
+    <string name="cbTaste12">酸味7.しっかりとした</string>
+    <string name="cbTaste13">酸味8.力強い</string>
+    <string name="cbTaste14">苦味1.控えめな</string>
+    <string name="cbTaste15">苦味2.穏やかな</string>
+    <string name="cbTaste16">苦味3.コク(深み)を与える</string>
+    <string name="cbTaste17">苦味4.旨味をともなった</string>
+    <string name="cbTaste18">苦味5.強い(突出した)</string>
+
+    <string name="tvLingeringTasteLength">余韻(長さ)</string>
+    <string name="cbLingeringTasteLength1">1.短い</string>
+    <string name="cbLingeringTasteLength2">2.やや短い</string>
+    <string name="cbLingeringTasteLength3">3.やや長い</string>
+    <string name="cbLingeringTasteLength4">4.長い</string>
+
+    <string name="tvBalance">バランス・テクスチャー</string>
+    <string name="cbBalance1">1.スムースな</string>
+    <string name="cbBalance2">2.溌剌とした</string>
+    <string name="cbBalance3">3.ドライな</string>
+    <string name="cbBalance4">4.まろやかな</string>
+    <string name="cbBalance5">5.ねっとりとした</string>
+    <string name="cbBalance6">6.コンパクトな</string>
+    <string name="cbBalance7">7.フラットな</string>
+    <string name="cbBalance8">8.豊潤な</string>
+    <string name="cbBalance9">9.厚みのある</string>
+    <string name="cbBalance10">10.力強い</string>
+
+    <string name="tvIntensity">濃淡</string>
+    <string name="cbIntensity1">1.淡麗</string>
+    <string name="cbIntensity2">2.やや淡麗</string>
+    <string name="cbIntensity3">3.中庸</string>
+    <string name="cbIntensity4">4.やや濃醇</string>
+    <string name="cbIntensity5">5.濃醇</string>
+
+    <string name="tvSweetness">甘辛度</string>
+    <string name="cbSweetness1">1.辛口</string>
+    <string name="cbSweetness2">2.やや辛口</string>
+    <string name="cbSweetness3">3.中庸</string>
+    <string name="cbSweetness4">4.やや甘口</string>
+    <string name="cbSweetness5">5.甘口</string>
+
+    <!-- ================================================== -->
+    <!-- 感想他 -->
+    <!-- ================================================== -->
+    <string name="tvNote">感想他</string>
+
 </resources>

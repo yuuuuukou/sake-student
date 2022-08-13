@@ -1,18 +1,1514 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_margin="5dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- ボタン領域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 右寄せ用 -->
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+        <!-- 出力ボタン -->
+        <Button
+            android:id="@+id/btnExport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnExport" />
+
+        <!-- クリアボタン -->
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/btnClear" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 入力領域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ================================================== -->
+            <!-- 銘柄名称 -->
+            <!-- ================================================== -->
+            <TextView
+                android:id="@+id/tvSakeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/etSakeName"
+                android:text="@string/tvSakeName"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etSakeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autofillHints=""
+                android:inputType="text"
+                android:text=""
+                tools:targetApi="o" />
+
+            <!-- ================================================== -->
+            <!-- 外観 -->
+            <!-- ================================================== -->
+            <TextView
+                android:id="@+id/tvAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvAppearance"
+                android:textSize="20sp" />
+
+            <!-- 清澄感 -->
+            <TextView
+                android:id="@+id/tvTransparency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvTransparency"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbTransparency1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTransparency1" />
+
+                <CheckBox
+                    android:id="@+id/cbTransparency2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTransparency2" />
+
+                <CheckBox
+                    android:id="@+id/cbTransparency3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTransparency3" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 濃淡 -->
+            <TextView
+                android:id="@+id/tvShade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvShade"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbShade1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbShade1" />
+
+                <CheckBox
+                    android:id="@+id/cbShade2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbShade2" />
+
+                <CheckBox
+                    android:id="@+id/cbShade3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbShade3" />
+
+                <CheckBox
+                    android:id="@+id/cbShade4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbShade4" />
+
+                <CheckBox
+                    android:id="@+id/cbShade5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbShade5" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 色調 -->
+            <TextView
+                android:id="@+id/tvColorTone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvColorTone"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbColorTone1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone1" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone2" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone3" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone4" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone5" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone6" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone7" />
+
+                <CheckBox
+                    android:id="@+id/cbColorTone8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbColorTone8" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- ================================================== -->
+            <!-- 香り -->
+            <!-- ================================================== -->
+            <TextView
+                android:id="@+id/tvFragrance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvFragrance"
+                android:textSize="20sp" />
+
+            <!-- 第一印象 -->
+            <TextView
+                android:id="@+id/tvFirstImpressionFragrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvFirstImpressionFragrance"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance1" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance2" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance3" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance4" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance5" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance6" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFragrance7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFragrance7" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 特徴 -->
+            <TextView
+                android:id="@+id/tvFeature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvFeature"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbFeature1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature1" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature2" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature3" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature4" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature5" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature6" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature7" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature8" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature9" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature10" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature11" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature12" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature13" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature14" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature15" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature16" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature17" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature18" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature19" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature20" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature21" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature22" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature23" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature24" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature25" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature26" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature27" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature28" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature29" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature30" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature31" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature32" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature33" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature34" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature35" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature36" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature37" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature38" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature39"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature39" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature40" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature41" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature42" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature43" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature44" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature45" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature46" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature47" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature48" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature49"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature49" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature50" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature51" />
+
+                <CheckBox
+                    android:id="@+id/cbFeature52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFeature52" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 特徴(手入力) -->
+            <TextView
+                android:id="@+id/tvFeatureManual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:labelFor="@+id/etFeature"
+                android:text="@string/tvFeatureManual"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etFeature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autofillHints=""
+                android:inputType="text"
+                android:text=""
+                tools:targetApi="o" />
+
+            <!-- ================================================== -->
+            <!-- 味わい -->
+            <!-- ================================================== -->
+            <TextView
+                android:id="@+id/tvFlavor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvFlavor"
+                android:textSize="20sp" />
+
+            <!-- 第一印象 -->
+            <TextView
+                android:id="@+id/tvFirstImpressionFlavor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvFirstImpressionFlavor"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFlavor1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFlavor1" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFlavor2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFlavor2" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFlavor3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFlavor3" />
+
+                <CheckBox
+                    android:id="@+id/cbFirstImpressionFlavor4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbFirstImpressionFlavor4" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 気泡(粒度) -->
+            <TextView
+                android:id="@+id/tvBubbleSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvBubbleSize"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbBubbleSize1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleSize1" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleSize2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleSize2" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleSize3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleSize3" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleSize4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleSize4" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleSize5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleSize5" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 気泡(量、持続性) -->
+            <TextView
+                android:id="@+id/tvBubbleVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvBubbleVolume"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume1" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume2" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume3" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume4" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume5" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume6" />
+
+                <CheckBox
+                    android:id="@+id/cbBubbleVolume7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBubbleVolume7" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 口当たり -->
+            <TextView
+                android:id="@+id/tvTaste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvTaste"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbTaste1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste1" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste2" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste3" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste4" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste5" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbTaste6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste6" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste7" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste8" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste9" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste10" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste11" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste12" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste13" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbTaste14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste14" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste15" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste16" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste17" />
+
+                <CheckBox
+                    android:id="@+id/cbTaste18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste18" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 広がり -->
+            <TextView
+                android:id="@+id/tvExpanse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvExpanse"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbExpanse1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste1" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste2" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste3" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste4" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste5" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbExpanse6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste6" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste7" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste8" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste9" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste10" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste11" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste12" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste13" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbExpanse14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste14" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste15" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste16" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste17" />
+
+                <CheckBox
+                    android:id="@+id/cbExpanse18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste18" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 余韻 -->
+            <TextView
+                android:id="@+id/tvLingeringTaste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvLingeringTaste"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste1" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste2" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste3" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste4" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste5" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste6" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste7" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste8" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste9" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste10" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste11" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste12" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste13" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste14" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste15" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste16" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste17" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTaste18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbTaste18" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 余韻(長さ) -->
+            <TextView
+                android:id="@+id/tvLingeringTasteLength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvLingeringTasteLength"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTasteLength1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbLingeringTasteLength1" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTasteLength2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbLingeringTasteLength2" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTasteLength3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbLingeringTasteLength3" />
+
+                <CheckBox
+                    android:id="@+id/cbLingeringTasteLength4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbLingeringTasteLength4" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- バランス・テクスチャー -->
+            <TextView
+                android:id="@+id/tvBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvBalance"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbBalance1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance1" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance2" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance3" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance4" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance5" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance6" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance7" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance8" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance9" />
+
+                <CheckBox
+                    android:id="@+id/cbBalance10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbBalance10" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 濃淡 -->
+            <TextView
+                android:id="@+id/tvIntensity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvIntensity"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbIntensity1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbIntensity1" />
+
+                <CheckBox
+                    android:id="@+id/cbIntensity2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbIntensity2" />
+
+                <CheckBox
+                    android:id="@+id/cbIntensity3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbIntensity3" />
+
+                <CheckBox
+                    android:id="@+id/cbIntensity4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbIntensity4" />
+
+                <CheckBox
+                    android:id="@+id/cbIntensity5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbIntensity5" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- 甘辛度 -->
+            <TextView
+                android:id="@+id/tvSweetness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/tvSweetness"
+                android:textSize="16sp" />
+
+            <com.google.android.flexbox.FlexboxLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+                <CheckBox
+                    android:id="@+id/cbSweetness1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbSweetness1" />
+
+                <CheckBox
+                    android:id="@+id/cbSweetness2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbSweetness2" />
+
+                <CheckBox
+                    android:id="@+id/cbSweetness3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbSweetness3" />
+
+                <CheckBox
+                    android:id="@+id/cbSweetness4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbSweetness4" />
+
+                <CheckBox
+                    android:id="@+id/cbSweetness5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cbSweetness5" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- ================================================== -->
+            <!-- 感想他 -->
+            <!-- ================================================== -->
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/etNote"
+                android:text="@string/tvNote"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:autofillHints=""
+                android:inputType="textMultiLine"
+                android:text=""
+                tools:targetApi="o" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * テキスト出力ボタン用OnClickイベンドのリスナ
+     * - クリップボードに出力する
+     */
     private inner class ExportButtonOnClickListener : View.OnClickListener {
         override fun onClick(view: View) {
             exportTastingComments()
@@ -151,6 +155,9 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
     }
 
+    /**
+     * テキスト出力処理
+     */
     private fun exportTastingComments() {
         val sharedPref: SharedPreferences =
             getSharedPreferences(sharedPreferenceKey, Context.MODE_PRIVATE)
@@ -411,6 +418,10 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, R.string.btnExport_toast, Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * リスト追加処理
+     * - SharedPreferenceを一度リストに突っ込んでからjoinToStringで整形して出力する
+     */
     private fun addList(
         sharedPref: SharedPreferences,
         tmpList: MutableList<String>,

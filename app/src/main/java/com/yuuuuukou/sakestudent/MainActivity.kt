@@ -12,10 +12,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-
 class MainActivity : AppCompatActivity() {
     private val sharedPreferenceKey = "com.yuuuuukou.sakestudent.tasting"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +24,33 @@ class MainActivity : AppCompatActivity() {
 
         // 保存済みデータの初期設定
         initializeData()
+    }
+
+    /**
+     * クリアボタン用OnLongClickイベンドのリスナ
+     * - 長押し削除の旨を表示
+     */
+    private inner class ClearButtonOnClickListener : View.OnClickListener {
+        override fun onClick(view: View) {
+            Toast.makeText(applicationContext, R.string.toast, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * クリアボタン用OnLongClickイベンドのリスナ
+     * - 入力内容を破棄する
+     * - ダイアログ出したいけど一旦長押しで事故回避
+     */
+    private inner class ClearButtonOnLongClickListener : View.OnLongClickListener {
+        override fun onLongClick(p0: View?): Boolean {
+            clearDisplayEdit()
+            return true
+        }
+    }
+
+    private inner class ExportButtonOnClickListener : View.OnClickListener {
+        override fun onClick(view: View) {
+        }
     }
 
     /**
@@ -139,12 +164,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     /**
      * Viewの初期化
      * - イベントリスナの設定
      */
     private fun initializeView() {
+        findViewById<Button>(R.id.btnClear).setOnClickListener(ClearButtonOnClickListener())
+        findViewById<Button>(R.id.btnClear).setOnLongClickListener(ClearButtonOnLongClickListener())
+        findViewById<Button>(R.id.btnExport).setOnClickListener(ExportButtonOnClickListener())
+
         findViewById<EditText>(R.id.etSakeName).addTextChangedListener(TextWatcherForSakeName())
         findViewById<EditText>(R.id.etSakeName).onFocusChangeListener = FocusChangeListener()
 
@@ -1118,4 +1146,184 @@ class MainActivity : AppCompatActivity() {
             false
         )
     }
+
+    /**
+     * 画面の編集内容を破棄する
+     */
+    private fun clearDisplayEdit() {
+        findViewById<EditText>(R.id.etSakeName).text = null
+        findViewById<EditText>(R.id.etFeature).text = null
+        findViewById<EditText>(R.id.etNote).text = null
+
+        findViewById<CheckBox>(R.id.cbTransparency1).isChecked = false
+        findViewById<CheckBox>(R.id.cbTransparency2).isChecked = false
+        findViewById<CheckBox>(R.id.cbTransparency3).isChecked = false
+        findViewById<CheckBox>(R.id.cbShade1).isChecked = false
+        findViewById<CheckBox>(R.id.cbShade2).isChecked = false
+        findViewById<CheckBox>(R.id.cbShade3).isChecked = false
+        findViewById<CheckBox>(R.id.cbShade4).isChecked = false
+        findViewById<CheckBox>(R.id.cbShade5).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone1).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone2).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone3).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone4).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone5).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone6).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone7).isChecked = false
+        findViewById<CheckBox>(R.id.cbColorTone8).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance1).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance2).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance3).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance4).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance5).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance6).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFragrance7).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature1).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature2).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature3).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature4).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature5).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature6).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature7).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature8).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature9).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature10).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature11).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature12).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature13).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature14).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature15).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature16).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature17).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature18).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature19).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature20).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature21).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature22).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature23).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature24).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature25).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature26).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature27).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature28).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature29).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature30).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature31).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature32).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature33).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature34).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature35).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature36).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature37).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature38).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature39).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature40).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature41).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature42).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature43).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature44).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature45).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature46).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature47).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature48).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature49).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature50).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature51).isChecked = false
+        findViewById<CheckBox>(R.id.cbFeature52).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFlavor1).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFlavor2).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFlavor3).isChecked = false
+        findViewById<CheckBox>(R.id.cbFirstImpressionFlavor4).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleSize1).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleSize2).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleSize3).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleSize4).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleSize5).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume1).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume2).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume3).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume4).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume5).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume6).isChecked = false
+        findViewById<CheckBox>(R.id.cbBubbleVolume7).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste1).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste2).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste3).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste4).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste5).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste6).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste7).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste8).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste9).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste10).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste11).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste12).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste13).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste14).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste15).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste16).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste17).isChecked = false
+        findViewById<CheckBox>(R.id.cbTaste18).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse1).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse2).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse3).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse4).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse5).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse6).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse7).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse8).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse9).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse10).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse11).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse12).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse13).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse14).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse15).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse16).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse17).isChecked = false
+        findViewById<CheckBox>(R.id.cbExpanse18).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste1).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste2).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste3).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste4).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste5).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste6).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste7).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste8).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste9).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste10).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste11).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste12).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste13).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste14).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste15).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste16).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste17).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTaste18).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTasteLength1).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTasteLength2).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTasteLength3).isChecked = false
+        findViewById<CheckBox>(R.id.cbLingeringTasteLength4).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance1).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance2).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance3).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance4).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance5).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance6).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance7).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance8).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance9).isChecked = false
+        findViewById<CheckBox>(R.id.cbBalance10).isChecked = false
+        findViewById<CheckBox>(R.id.cbIntensity1).isChecked = false
+        findViewById<CheckBox>(R.id.cbIntensity2).isChecked = false
+        findViewById<CheckBox>(R.id.cbIntensity3).isChecked = false
+        findViewById<CheckBox>(R.id.cbIntensity4).isChecked = false
+        findViewById<CheckBox>(R.id.cbIntensity5).isChecked = false
+        findViewById<CheckBox>(R.id.cbSweetness1).isChecked = false
+        findViewById<CheckBox>(R.id.cbSweetness2).isChecked = false
+        findViewById<CheckBox>(R.id.cbSweetness3).isChecked = false
+        findViewById<CheckBox>(R.id.cbSweetness4).isChecked = false
+        findViewById<CheckBox>(R.id.cbSweetness5).isChecked = false
+    }
 }
+

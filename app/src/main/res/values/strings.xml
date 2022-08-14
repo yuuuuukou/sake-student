@@ -4,6 +4,8 @@
     <string name="btnExport">テキスト出力</string>
     <string name="btnClear">クリア</string>
 
+    <string name="toast">長押しで削除</string>
+
     <string name="tvSakeName">銘柄</string>
 
     <!-- ================================================== -->

@@ -11,6 +11,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
     private val sharedPreferenceKey = "com.yuuuuukou.sakestudent.tasting"
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
      */
     private inner class ClearButtonOnClickListener : View.OnClickListener {
         override fun onClick(view: View) {
-            Toast.makeText(applicationContext, R.string.toast, Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, R.string.btnClear_toast, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     private inner class ExportButtonOnClickListener : View.OnClickListener {
         override fun onClick(view: View) {
+            exportTastingComments()
         }
     }
 
@@ -147,6 +149,301 @@ class MainActivity : AppCompatActivity() {
 
         editor.putString(key, value)
         editor.apply()
+    }
+
+    private fun exportTastingComments() {
+        val sharedPref: SharedPreferences =
+            getSharedPreferences(sharedPreferenceKey, Context.MODE_PRIVATE)
+        var tmpList = mutableListOf<String>()
+
+        val s = StringBuilder()
+
+        // 銘柄名称
+        tmpList = addList(sharedPref, tmpList, R.id.etSakeName, R.id.tvSakeName)
+        s.append(tmpList.joinToString("、"))
+        tmpList = mutableListOf()
+
+        // 外観
+        s.append("\n${getString(R.string.tvAppearance)}")
+        s.append("\n\t${getString(R.string.tvTransparency)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbTransparency1, R.string.cbTransparency1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTransparency2, R.string.cbTransparency2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTransparency3, R.string.cbTransparency3)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvShade)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbShade1, R.string.cbShade1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbShade2, R.string.cbShade2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbShade3, R.string.cbShade3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbShade4, R.string.cbShade4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbShade5, R.string.cbShade5)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvColorTone)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone1, R.string.cbColorTone1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone2, R.string.cbColorTone2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone3, R.string.cbColorTone3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone4, R.string.cbColorTone4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone5, R.string.cbColorTone5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone6, R.string.cbColorTone6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone7, R.string.cbColorTone7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbColorTone8, R.string.cbColorTone8)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        // 香り
+        s.append("\n${getString(R.string.tvFragrance)}")
+
+        s.append("\n\t${getString(R.string.tvFirstImpressionFragrance)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance1, R.string.cbFirstImpressionFragrance1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance2, R.string.cbFirstImpressionFragrance2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance3, R.string.cbFirstImpressionFragrance3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance4, R.string.cbFirstImpressionFragrance4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance5, R.string.cbFirstImpressionFragrance5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance6, R.string.cbFirstImpressionFragrance6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFragrance7, R.string.cbFirstImpressionFragrance7)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvFeature)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature1, R.string.cbFeature1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature2, R.string.cbFeature2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature3, R.string.cbFeature3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature4, R.string.cbFeature4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature5, R.string.cbFeature5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature6, R.string.cbFeature6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature7, R.string.cbFeature7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature8, R.string.cbFeature8)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature9, R.string.cbFeature9)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature10, R.string.cbFeature10)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature11, R.string.cbFeature11)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature12, R.string.cbFeature12)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature13, R.string.cbFeature13)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature14, R.string.cbFeature14)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature15, R.string.cbFeature15)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature16, R.string.cbFeature16)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature17, R.string.cbFeature17)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature18, R.string.cbFeature18)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature19, R.string.cbFeature19)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature20, R.string.cbFeature20)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature21, R.string.cbFeature21)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature22, R.string.cbFeature22)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature23, R.string.cbFeature23)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature24, R.string.cbFeature24)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature25, R.string.cbFeature25)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature26, R.string.cbFeature26)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature27, R.string.cbFeature27)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature28, R.string.cbFeature28)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature29, R.string.cbFeature29)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature30, R.string.cbFeature30)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature31, R.string.cbFeature31)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature32, R.string.cbFeature32)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature33, R.string.cbFeature33)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature34, R.string.cbFeature34)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature35, R.string.cbFeature35)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature36, R.string.cbFeature36)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature37, R.string.cbFeature37)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature38, R.string.cbFeature38)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature39, R.string.cbFeature39)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature40, R.string.cbFeature40)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature41, R.string.cbFeature41)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature42, R.string.cbFeature42)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature43, R.string.cbFeature43)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature44, R.string.cbFeature44)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature45, R.string.cbFeature45)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature46, R.string.cbFeature46)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature47, R.string.cbFeature47)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature48, R.string.cbFeature48)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature49, R.string.cbFeature49)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature50, R.string.cbFeature50)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature51, R.string.cbFeature51)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFeature52, R.string.cbFeature52)
+        tmpList = addList(sharedPref, tmpList, R.id.etFeature, R.string.tvFeature)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        // 味わい
+        s.append("\n${getString(R.string.tvFlavor)}")
+
+        s.append("\n\t${getString(R.string.tvFirstImpressionFlavor)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFlavor1, R.string.cbFirstImpressionFlavor1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFlavor2, R.string.cbFirstImpressionFlavor2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFlavor3, R.string.cbFirstImpressionFlavor3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbFirstImpressionFlavor4, R.string.cbFirstImpressionFlavor4)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvBubbleSize)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleSize1, R.string.cbBubbleSize1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleSize2, R.string.cbBubbleSize2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleSize3, R.string.cbBubbleSize3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleSize4, R.string.cbBubbleSize4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleSize5, R.string.cbBubbleSize5)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvBubbleVolume)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume1, R.string.cbBubbleVolume1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume2, R.string.cbBubbleVolume2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume3, R.string.cbBubbleVolume3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume4, R.string.cbBubbleVolume4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume5, R.string.cbBubbleVolume5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume6, R.string.cbBubbleVolume6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBubbleVolume7, R.string.cbBubbleVolume7)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvTaste)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste1, R.string.cbTaste1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste2, R.string.cbTaste2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste3, R.string.cbTaste3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste4, R.string.cbTaste4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste5, R.string.cbTaste5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste6, R.string.cbTaste6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste7, R.string.cbTaste7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste8, R.string.cbTaste8)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste9, R.string.cbTaste9)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste10, R.string.cbTaste10)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste11, R.string.cbTaste11)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste12, R.string.cbTaste12)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste13, R.string.cbTaste13)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste14, R.string.cbTaste14)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste15, R.string.cbTaste15)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste16, R.string.cbTaste16)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste17, R.string.cbTaste17)
+        tmpList = addList(sharedPref, tmpList, R.id.cbTaste18, R.string.cbTaste18)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvExpanse)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse1, R.string.cbTaste1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse2, R.string.cbTaste2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse3, R.string.cbTaste3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse4, R.string.cbTaste4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse5, R.string.cbTaste5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse6, R.string.cbTaste6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse7, R.string.cbTaste7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse8, R.string.cbTaste8)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse9, R.string.cbTaste9)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse10, R.string.cbTaste10)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse11, R.string.cbTaste11)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse12, R.string.cbTaste12)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse13, R.string.cbTaste13)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse14, R.string.cbTaste14)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse15, R.string.cbTaste15)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse16, R.string.cbTaste16)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse17, R.string.cbTaste17)
+        tmpList = addList(sharedPref, tmpList, R.id.cbExpanse18, R.string.cbTaste18)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvLingeringTaste)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste1, R.string.cbTaste1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste2, R.string.cbTaste2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste3, R.string.cbTaste3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste4, R.string.cbTaste4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste5, R.string.cbTaste5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste6, R.string.cbTaste6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste7, R.string.cbTaste7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste8, R.string.cbTaste8)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste9, R.string.cbTaste9)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste10, R.string.cbTaste10)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste11, R.string.cbTaste11)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste12, R.string.cbTaste12)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste13, R.string.cbTaste13)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste14, R.string.cbTaste14)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste15, R.string.cbTaste15)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste16, R.string.cbTaste16)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste17, R.string.cbTaste17)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTaste18, R.string.cbTaste18)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvLingeringTasteLength)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTasteLength1, R.string.cbLingeringTasteLength1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTasteLength2, R.string.cbLingeringTasteLength2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTasteLength3, R.string.cbLingeringTasteLength3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbLingeringTasteLength4, R.string.cbLingeringTasteLength4)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvBalance)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance1, R.string.cbBalance1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance2, R.string.cbBalance2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance3, R.string.cbBalance3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance4, R.string.cbBalance4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance5, R.string.cbBalance5)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance6, R.string.cbBalance6)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance7, R.string.cbBalance7)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance8, R.string.cbBalance8)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance9, R.string.cbBalance9)
+        tmpList = addList(sharedPref, tmpList, R.id.cbBalance10, R.string.cbBalance10)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvIntensity)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbIntensity1, R.string.cbIntensity1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbIntensity2, R.string.cbIntensity2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbIntensity3, R.string.cbIntensity3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbIntensity4, R.string.cbIntensity4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbIntensity5, R.string.cbIntensity5)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        s.append("\n\t${getString(R.string.tvSweetness)}")
+        tmpList = addList(sharedPref, tmpList, R.id.cbSweetness1, R.string.cbSweetness1)
+        tmpList = addList(sharedPref, tmpList, R.id.cbSweetness2, R.string.cbSweetness2)
+        tmpList = addList(sharedPref, tmpList, R.id.cbSweetness3, R.string.cbSweetness3)
+        tmpList = addList(sharedPref, tmpList, R.id.cbSweetness4, R.string.cbSweetness4)
+        tmpList = addList(sharedPref, tmpList, R.id.cbSweetness5, R.string.cbSweetness5)
+        s.append("\n\t\t${tmpList.joinToString("、")}")
+        tmpList = mutableListOf()
+
+        // 感想他
+        s.append("\n${getString(R.string.tvNote)}")
+        tmpList = addList(sharedPref, tmpList, R.id.etNote, R.string.tvNote)
+        s.append("\n\t${tmpList.joinToString("、")}")
+
+        // クリップボードへコピー
+        copyToClipboard(applicationContext, "", s.toString())
+        Toast.makeText(applicationContext, R.string.btnExport_toast, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addList(
+        sharedPref: SharedPreferences,
+        tmpList: MutableList<String>,
+        resourceId: Int,
+        stringId: Int
+    ): MutableList<String> {
+
+        val idString = applicationContext.resources.getResourceEntryName(resourceId)
+
+        var tmpString: String? = null
+        if (idString.startsWith("cb")) {
+            // チェックボックス
+            val isChecked = sharedPref.getBoolean(
+                applicationContext.resources.getResourceEntryName(resourceId),
+                false
+            )
+            if (isChecked) {
+                // チェック有りならテキストを設定する
+                tmpString = getString(stringId)
+            }
+        } else {
+            // チェックボックス以外
+            tmpString = sharedPref.getString(
+                applicationContext.resources.getResourceEntryName(resourceId),
+                null
+            )
+            tmpString = tmpString?.replace("\n", "\n\t")
+        }
+
+        if (tmpString != null) {
+            tmpList.add(tmpString)
+        }
+        return tmpList
     }
 
     /**

@@ -2,9 +2,10 @@
     <string name="app_name">Sake Student</string>
 
     <string name="btnExport">テキスト出力</string>
-    <string name="btnClear">クリア</string>
+    <string name="btnExport_toast">クリップボードへコピーしました</string>
 
-    <string name="toast">長押しで削除</string>
+    <string name="btnClear">クリア</string>
+    <string name="btnClear_toast">長押しで削除します</string>
 
     <string name="tvSakeName">銘柄</string>
 

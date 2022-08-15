@@ -448,6 +448,10 @@ class MainActivity : AppCompatActivity() {
                 applicationContext.resources.getResourceEntryName(resourceId),
                 null
             )
+            if (tmpString?.isEmpty() == true) {
+                // リストに空文字を追加したくないのでnullにしておく
+                tmpString = null
+            }
             tmpString = tmpString?.replace("\n", "\n\t")
         }
 
